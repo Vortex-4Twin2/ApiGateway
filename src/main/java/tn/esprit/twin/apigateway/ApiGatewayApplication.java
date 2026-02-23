@@ -20,6 +20,14 @@ public class ApiGatewayApplication {
     public RouteLocator getRoutes(RouteLocatorBuilder builder) {
         return builder.routes().route(
                         "Produits", r -> r.path("/products/**").uri("lb://MicroserviceProduits"))
+                .route("livraison",r -> r.path("/livraisons/**").uri("lb://MicroService-Livraison"))
+                .route("Panier",r->r.path("/paniers/**").uri("lb://Panier"))
+                .route("offre",r->r.path("/offres/**").uri("lb://MicroServiceDouaa"))
+                .route("user", r -> r.path("/users/")
+                        .uri("lb://UserMS"))
+                .route("auth", r -> r.path("/auth/")
+                        .uri("lb://UserMS"))
+                .route("commande", r->r.path("/api/commandes/**").uri("lb://Commande"))
                 .build();
     }
 
