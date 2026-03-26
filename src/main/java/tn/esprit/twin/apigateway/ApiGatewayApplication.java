@@ -23,11 +23,13 @@ public class ApiGatewayApplication {
                 .route("livraison",r -> r.path("/livraisons/**").uri("lb://MicroService-Livraison"))
                 .route("Panier",r->r.path("/paniers/**").uri("lb://Panier"))
                 .route("offre",r->r.path("/offres/**").uri("lb://MicroServiceDouaa"))
-                .route("user", r -> r.path("/users/")
+                .route("user", r -> r.path("/users/**")
                         .uri("lb://UserMS"))
-                .route("auth", r -> r.path("/auth/")
+                .route("auth", r -> r.path("/auth/**")
                         .uri("lb://UserMS"))
                 .route("commande", r->r.path("/api/commandes/**").uri("lb://Commande"))
+                .route("avis", r -> r.path("/avis/**")
+                        .uri("lb://AVIS-RECLAMATION-SERVICE"))
                 .build();
     }
 
